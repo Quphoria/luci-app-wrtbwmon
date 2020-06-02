@@ -42,6 +42,19 @@ return L.view.extend({
 		o.default = '/tmp/usage.db';
 		o.rmempty = false;
 
+		o = s.option(form.Flag, 'resolve_hostnames', _('Hostnames from dhcp'), _('Use the hostname in /tmp/dhcp.leases if the MAC is not in the user file.'));
+		o.rmempty = true;
+
+		o = s.option(form.Flag, 'speed_in_bits', _('Transfer speed in bits'), _("Display the download/upload speed in bit/s instead of Bytes/s"));
+		o.default = 0;
+		o.rmempty = true;
+		
+		o = s.option(form.Value, 'downstream_bandwidth', _("Downstream Bandwidth"), _("The Downstream Bandwidth of the internet connection measured in Kb/s (kilobits/sec) (1 byte = 8 bits)"))
+		o.default = 8192;
+
+		o = s.option(form.Value, 'upstream_bandwidth', _("Upstream Bandwidth"), _("The Upstream Bandwidth of the internet connection measured in Kb/s (kilobits/sec) (1 byte = 8 bits)"))
+		o.default = 8192;
+
 		return m.render();
 	},
 
